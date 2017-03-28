@@ -32,6 +32,10 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         ArrayList<Spot> spots = new ArrayList<Spot>();
+        spots.add(new Spot("green"));
+        spots.add(new Spot("red"));
+        spots.add(new Spot("red"));
+        spots.add(new Spot("green"));
         try{
             spots = new Feed().execute().get();
         }catch(Exception e){
@@ -42,22 +46,22 @@ public class DetailActivity extends AppCompatActivity {
         buttons.add((Button)findViewById(R.id.button2));
         buttons.add((Button)findViewById(R.id.button3));
         buttons.add((Button)findViewById(R.id.button4));
-
-        for(int i=0; i < buttons.size(); i++){
-            if (spots.get(i).color.equals("green"))
-                buttons.get(i).setBackgroundColor(Color.GREEN);
-            else if (spots.get(i).color.equals("red"))
-                buttons.get(i).setBackgroundColor(Color.RED);
-            else if (spots.get(i).color.equals("yellow"))
-                buttons.get(i).setBackgroundColor(Color.YELLOW);
-            else {
-                //because you didn't assign any color
-                buttons.get(i).setBackgroundColor(Color.BLACK);
-                Log.d("Exception", "No color found in the api");
-            }
-        }
-
-
+//        if (buttons.size() != 0) {
+//            for (int i = 0; i < buttons.size(); i++) {
+//                if (spots.get(i).color.equals("green"))
+//                    buttons.get(i).setBackgroundColor(Color.GREEN);
+//                else if (spots.get(i).color.equals("red"))
+//                    buttons.get(i).setBackgroundColor(Color.RED);
+//                else if (spots.get(i).color.equals("yellow"))
+//                    buttons.get(i).setBackgroundColor(Color.YELLOW);
+//                else {
+//                    //because you didn't assign any color
+//                    buttons.get(i).setBackgroundColor(Color.BLACK);
+//                    Log.d("Exception", "No color found in the api");
+//                }
+//            }
+//
+//        }
 
     }
 

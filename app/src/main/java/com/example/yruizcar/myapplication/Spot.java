@@ -9,4 +9,7 @@ public class Spot {
     public Spot(){
 
     }
+    public Spot(String color){
+        this.color = color;
+    }
 }
