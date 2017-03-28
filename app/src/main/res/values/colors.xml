@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#e9eaf2</color>
+    <color name="colorPrimaryDark">#8998f7</color>
+    <color name="colorAccent">#661010</color>
+    <color name="red">#ff0000</color>
+    <color name="yellow">#eaff00</color>
+    <color name="green">#bc04ff00</color>
+    <color name="black">#FF0B0B0B</color>
+    <color name="shit">#FF661010</color>
+    FF661010
+</resources>
