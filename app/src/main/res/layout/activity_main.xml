@@ -16,12 +16,12 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="Search For Parking Spot"
+        android:textColor="#ff0000"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="25dp"
-        android:background="@android:color/black"
-        android:text="Search For Parking Spot"
-        android:textColor="#ff0000" />
+        android:layout_marginBottom="37dp" />
 
     <TextView
         android:layout_width="wrap_content"
