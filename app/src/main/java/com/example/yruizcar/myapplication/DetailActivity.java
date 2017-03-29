@@ -32,12 +32,18 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         ArrayList<Spot> spots = new ArrayList<Spot>();
+
+        //don't change this part till the app runs
         spots.add(new Spot("green"));
         spots.add(new Spot("red"));
         spots.add(new Spot("red"));
         spots.add(new Spot("green"));
+
         try{
-            spots = new Feed().execute().get();
+            ArrayList<Spot> spots1 = new Feed().execute().get();
+            if (spots1.size() > 0){
+                spots = spots1;
+            }
         }catch(Exception e){
             Log.d("Exception", "Can't get anything from server");
         }
@@ -46,22 +52,24 @@ public class DetailActivity extends AppCompatActivity {
         buttons.add((Button)findViewById(R.id.button2));
         buttons.add((Button)findViewById(R.id.button3));
         buttons.add((Button)findViewById(R.id.button4));
-//        if (buttons.size() != 0) {
-//            for (int i = 0; i < buttons.size(); i++) {
-//                if (spots.get(i).color.equals("green"))
-//                    buttons.get(i).setBackgroundColor(Color.GREEN);
-//                else if (spots.get(i).color.equals("red"))
-//                    buttons.get(i).setBackgroundColor(Color.RED);
-//                else if (spots.get(i).color.equals("yellow"))
-//                    buttons.get(i).setBackgroundColor(Color.YELLOW);
-//                else {
-//                    //because you didn't assign any color
-//                    buttons.get(i).setBackgroundColor(Color.BLACK);
-//                    Log.d("Exception", "No color found in the api");
-//                }
-//            }
-//
-//        }
+
+        Log.d("something", spots.toString());
+
+
+
+        for (int i = 0; i < buttons.size(); i++) {
+            if (spots.get(i).color.equals("green"))
+                buttons.get(i).setBackgroundColor(Color.GREEN);
+            else if (spots.get(i).color.equals("red"))
+                buttons.get(i).setBackgroundColor(Color.RED);
+            else if (spots.get(i).color.equals("yellow"))
+                buttons.get(i).setBackgroundColor(Color.YELLOW);
+            else {
+                //because you didn't assign any color
+                buttons.get(i).setBackgroundColor(Color.BLACK);
+                Log.d("Exception", "No color found in the api");
+            }
+        }
 
     }
 
@@ -79,7 +87,7 @@ public class DetailActivity extends AppCompatActivity {
             Intent intent = getIntent();
             Bundle bundle = intent.getExtras();
 
-            String myurl = "https://spotfinder.herokuapp.com/get_data";
+            String myurl = "http://spotfinder.herokuapp.com/get_data/";
 
             try {
                 URL url = new URL
@@ -98,6 +106,7 @@ public class DetailActivity extends AppCompatActivity {
 
                 while ((next = bufferedReader.readLine()) != null) {
                     //JSONArray ja = new JSONArray(next);
+                    Log.d("app", next);
                     JSONObject jas = new JSONObject(next);
                     //JSONArray ja = new JSONArray("results");
                     Log.d("uweyuri", jas.toString());
